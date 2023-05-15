@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>BMR Calculator</title>
+</head>
+<body>
+  <h1>BMR Calculator</h1>
+  <form>
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select><br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age"><br><br>
+
+    <label for="height">Height (in cm):</label>
+    <input type="number" id="height" name="height"><br><br>
+
+    <label for="weight">Weight (in kg):</label>
+    <input type="number" id="weight" name="weight"><br><br>
+
+    <label for="activity-level">Activity Level:</label>
+    <select id="activity-level" name="activity-level">
+      <option value="sedentary">Sedentary</option>
+      <option value="lightly-active">Lightly Active</option>
+      <option value="moderately-active">Moderately Active</option>
+      <option value="very-active">Very Active</option>
+      <option value="extra-active">Extra Active</option>
+    </select><br><br>
+
+    <button type="button" onclick="calculateBMR()">Calculate BMR</button><br><br>
+
+    <label for="result">Result:</label>
+    <input type="number" id="result" name="result" readonly><br><br>
+  </form>
+
+  <script>
+    function calculateBMR() {
+      // Get form values
+      const gender = document.getElementById("gender").value;
+      const age = parseInt(document.getElementById("age").value);
+      const height = parseInt(document.getElementById("height").value);
+      const weight = parseInt(document.getElementById("weight").value);
+      const activityLevel = document.getElementById("activity-level").value;
+
+      // Calculate BMR
+      let bmr;
+      if (gender === "male") {
+        bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
+      } else {
+        bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
+      }
+
+      // Adjust for activity level
+      switch (activityLevel) {
+        case "sedentary":
+          bmr *= 1.2;
+          break;
+        case "lightly-active":
+          bmr *= 1.375;
+          break;
+        case "moderately-active":
+          bmr *= 1.55;
+          break;
+        case "very-active":
+          bmr *= 1.725;
+          break;
+        case "extra-active":
+          bmr *= 1.9;
+          break;
+      }
+
+      // Display result
+      document.getElementById("result").value = bmr.toFixed(2);
+    }
+  </script>
+</body>
+</html>
