@@ -27,6 +27,9 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- 上面是程式庫 -->
+
   <!-- =======================================================
   * Template Name: iPortfolio
   * Updated: Mar 10 2023 with Bootstrap v5.2.3
@@ -80,6 +83,19 @@
 
   <main id="main">
 
+
+
+<script>
+$(document).ready(function(){
+    $("#show").click(function(){
+        $("#text").toggle();
+    });
+    $("#hide").click(function(){
+        $("#text").hide();
+    });
+});
+</script>
+
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
@@ -94,12 +110,12 @@
             <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>NCUBL &amp; 團隊介紹</h3>
+            <h3 id=show>NCUBL &amp; 團隊介紹</h3>
             <p class="fst-italic">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
               magna aliqua.
             </p>
-            <div class="row">
+            <div class="row" id=text>
               <div class="col-lg-6">
                 <ul>
                   <li><i class="bi bi-chevron-right"></i> <strong>聯盟長:</strong> <span>吳泓毅</span></li>
@@ -437,6 +453,30 @@
       </div>
     </section><!-- End Portfolio Section -->
 
+
+
+<script>
+$(document).ready(function(){
+    $("#show").click(function(){
+        $("#text").toggle();
+    });
+    $("#hide").click(function(){
+        $("#text").hide();
+    });
+});
+</script>
+
+<script>
+    $(document).ready(function() {
+      var id = prompt("請輸入會員帳號");
+      if (id=='abc')
+        $('#show').show();
+      else
+        $('#show').hide();
+    });
+</script>
+
+
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
       <div class="container">
@@ -446,13 +486,16 @@
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
-        <form action="mailto:s9701602@gmail.com" method="post" enctype="text/plain">
+        <!-- <div class="row" id=text> -->
+          <h2 id=show>Services111111</h2>
+        <form action="mailto:s9701602@gmail.com" method="post" enctype="text/plain"  >
           <label for="department">系級：</label>
           <input type="text" id="department" name="department"><br><br>
           <label for="teamleader">隊長姓名：</label>
           <input type="text" id="teamleader" name="teamleader"><br><br>
           <input type="submit" value="提交">
         </form>
+        <!-- </div> -->
 
         <div class="row">
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
